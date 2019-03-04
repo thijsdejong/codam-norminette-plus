@@ -1,5 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import os
+import sys
 
 def get_files():
 	files = [f for f in os.listdir('.') if os.path.isfile(f)]
@@ -9,7 +10,7 @@ def get_files():
 def double_operation(line):
 	operations = 0
 
-	if ("=" in line):
+	if (" = " in line):
 		operations += 1
 	if ("++" in line):
 		operations += 1
@@ -18,6 +19,10 @@ def double_operation(line):
 	if ("if (" in line):
 		operations += 1
 	if ("while (" in line):
+		operations += 1
+	if ("return (" in line):
+		operations += 1
+	if ("?" in line):
 		operations += 1
 
 	if (operations > 1):
