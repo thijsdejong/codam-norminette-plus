@@ -2,9 +2,14 @@
 import os
 import sys
 
-def get_files():
-	files = [f for f in os.listdir('.') if os.path.isfile(f)]
-	return (files)
+def get_files(folder):
+	for f in os.listdir(folder):
+		if os.path.isdir(folder + f):
+			get_files(folder + f + "/")
+	files = [folder + f for f in os.listdir(folder) if os.path.isfile(folder + f)]
+	files.sort()
+	for file in files:
+		check_file(file)
 
 
 def double_operation(line):
@@ -40,9 +45,22 @@ def check_file(filename):
 			ln += 1
 
 def main():
-	files = get_files()
-	for file in files:
-		check_file(file)
+	argv = sys.argv
+	arguments = len(argv)
+	if (arguments == 1):
+		get_files("./")
+	else:
+		for f in argv[1:]:
+			if os.path.isdir(f):
+				get_files(f + "/")
+			elif os.path.isfile(f):
+				check_file(f)
+			elif "./" in f:
+				print("Norme: " + f + "\nWarning: Not a valid file")
+			elif f[0] != "/":
+				print("Norme: ./" + f + "\nWarning: Not a valid file")
+			else:
+				print("Norme: " + f + "\nWarning: Not a valid file")
 
 if (__name__ == "__main__"):
 	main()
