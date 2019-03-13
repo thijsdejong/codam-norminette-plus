@@ -4,7 +4,7 @@ import sys
 import urllib
 
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
-__version__ = '19.3.2'
+__version__ = '19.3.3'
 
 def update():
     try:
@@ -71,33 +71,36 @@ def double_operation(line):
 	return (0)
 
 def check_file(filename):
-	print("Norme: " + filename)
 	if (filename.endswith(".c")):
+		print("Norme: " + filename)
 		file = open(filename, "r")
 		ln = 1
 		for line in file:
 			if (double_operation(line)):
-				print("line " + str(ln) + ": multiple operations")
+				print("Error (line " + str(ln) + "): multiple operations")
 			ln += 1
+	else:
+		print_invalid_file(filename)
+
+def print_invalid_file(filename, addition = ""):
+	print("Norme: " + addition + filename + "\nWarning: Not a valid file")
 
 def main():
-    argv = sys.argv
-    arguments = len(argv)
-    if (arguments == 1):
-        get_files("./")
-    else:
-        for f in argv[1:]:
-            if os.path.isdir(f):
-            	get_files(f + "/")
-            elif os.path.isfile(f):
-            	check_file(f)
-            elif "./" in f:
-            	print("Norme: " + f + "\nWarning: Not a valid file")
-            elif f[0] != "/":
-            	print("Norme: ./" + f + "\nWarning: Not a valid file")
-            else:
-            	print("Norme: " + f + "\nWarning: Not a valid file")
-    update()
+	argv = sys.argv
+	arguments = len(argv)
+	if (arguments == 1):
+		get_files("./")
+	else:
+		for f in argv[1:]:
+			if os.path.isdir(f):
+				get_files(f + "/")
+			elif os.path.isfile(f):
+				check_file(f)
+			elif f[0] != "/":
+				print_invalid_file(f, "./")
+			else:
+				print_invalid_file(f)
+	update()
 
 if (__name__ == "__main__"):
 	main()
