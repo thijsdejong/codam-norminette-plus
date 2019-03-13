@@ -4,20 +4,22 @@ import sys
 import urllib
 
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
-__version__ = '19.3.3'
+UPDATE_FAIL = "\n" + "\033[31m" + "Update:" + "\033[0m "
+UPDATE_WARN = "\n" + "\033[33m" + "Update:" + "\033[0m "
+__version__ = '19.3.4'
 
 def update():
     try:
         v = urllib.urlopen(VERSIONFILE)
     except Exception as e:
-        print("\nUpdate: can't fetch version file: " + e)
+        print(UPDATE_FAIL + "can't fetch version file: " + e)
     else:
         if (v.getcode() == 200):
             version = v.read().rstrip()
             if (version != __version__):
-                print("\nUpdate: you do not have the latest version! The latest version is " + version + ", you have " + __version__ + "!")
+                print(UPDATE_WARN + "version " + version + " is available, you have version " + __version__ + "")
         else:
-            print("\nUpdate: can't fetch version file")
+            print(UPDATE_FAIL + "can't fetch version file")
 
 def get_files(folder):
     for f in os.listdir(folder):
