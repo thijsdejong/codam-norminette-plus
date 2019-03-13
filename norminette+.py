@@ -4,7 +4,7 @@ import sys
 import urllib
 
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
-__version__ = '19.3.1'
+__version__ = '19.3.2'
 
 def update():
     try:
@@ -20,13 +20,14 @@ def update():
             print("\nUpdate: can't fetch version file")
 
 def get_files(folder):
-	for f in os.listdir(folder):
-		if os.path.isdir(folder + f):
-			get_files(folder + f + "/")
-	files = [folder + f for f in os.listdir(folder) if os.path.isfile(folder + f)]
-	files.sort()
-	for file in files:
-		check_file(file)
+    for f in os.listdir(folder):
+        if (not f.startswith('.')):
+            if os.path.isdir(folder + f):
+                get_files(folder + f + "/")
+    files = [folder + f for f in os.listdir(folder) if os.path.isfile(folder + f)]
+    files.sort()
+    for file in files:
+        check_file(file)
 
 
 def double_operation(line):
