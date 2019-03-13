@@ -1,6 +1,23 @@
 #!/usr/bin/python
 import os
 import sys
+import urllib
+
+VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
+__version__ = '19.3.1'
+
+def update():
+    try:
+        v = urllib.urlopen(VERSIONFILE)
+    except Exception as e:
+        print("\nUpdate: can't fetch version file: " + e)
+    else:
+        if (v.getcode() == 200):
+            version = v.read().rstrip()
+            if (version != __version__):
+                print("\nUpdate: you do not have the latest version! The latest version is " + version + ", you have " + __version__ + "!")
+        else:
+            print("\nUpdate: can't fetch version file")
 
 def get_files(folder):
 	for f in os.listdir(folder):
@@ -20,6 +37,24 @@ def double_operation(line):
 	if ("++" in line):
 		operations += 1
 	if ("--" in line):
+		operations += 1
+	if ("+=" in line):
+		operations += 1
+	if ("-=" in line):
+		operations += 1
+	if ("*=" in line):
+		operations += 1
+	if ("/=" in line):
+		operations += 1
+	if ("&=" in line):
+		operations += 1
+	if ("|=" in line):
+		operations += 1
+	if ("^=" in line):
+		operations += 1
+	if ("<<=" in line):
+		operations += 1
+	if (">>=" in line):
 		operations += 1
 	if ("if (" in line):
 		operations += 1
@@ -45,22 +80,23 @@ def check_file(filename):
 			ln += 1
 
 def main():
-	argv = sys.argv
-	arguments = len(argv)
-	if (arguments == 1):
-		get_files("./")
-	else:
-		for f in argv[1:]:
-			if os.path.isdir(f):
-				get_files(f + "/")
-			elif os.path.isfile(f):
-				check_file(f)
-			elif "./" in f:
-				print("Norme: " + f + "\nWarning: Not a valid file")
-			elif f[0] != "/":
-				print("Norme: ./" + f + "\nWarning: Not a valid file")
-			else:
-				print("Norme: " + f + "\nWarning: Not a valid file")
+    argv = sys.argv
+    arguments = len(argv)
+    if (arguments == 1):
+        get_files("./")
+    else:
+        for f in argv[1:]:
+            if os.path.isdir(f):
+            	get_files(f + "/")
+            elif os.path.isfile(f):
+            	check_file(f)
+            elif "./" in f:
+            	print("Norme: " + f + "\nWarning: Not a valid file")
+            elif f[0] != "/":
+            	print("Norme: ./" + f + "\nWarning: Not a valid file")
+            else:
+            	print("Norme: " + f + "\nWarning: Not a valid file")
+    update()
 
 if (__name__ == "__main__"):
 	main()
