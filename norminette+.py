@@ -6,7 +6,9 @@ import urllib
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
 UPDATE_FAIL = "\n" + "\033[31m" + "Update:" + "\033[0m "
 UPDATE_WARN = "\n" + "\033[33m" + "Update:" + "\033[0m "
-__version__ = '19.3.4'
+__version__ = '19.3.5'
+
+OPERATIONS = (' = ', '++', '--', '+=', '-=', '*=', '/=', '&=', '|=', '^=', '<<=', '>>=', 'if (', 'while (', 'return (', '?')
 
 def update():
     try:
@@ -31,46 +33,15 @@ def get_files(folder):
     for file in files:
         check_file(file)
 
-
 def double_operation(line):
-	operations = 0
-
-	if (" = " in line):
-		operations += 1
-	if ("++" in line):
-		operations += 1
-	if ("--" in line):
-		operations += 1
-	if ("+=" in line):
-		operations += 1
-	if ("-=" in line):
-		operations += 1
-	if ("*=" in line):
-		operations += 1
-	if ("/=" in line):
-		operations += 1
-	if ("&=" in line):
-		operations += 1
-	if ("|=" in line):
-		operations += 1
-	if ("^=" in line):
-		operations += 1
-	if ("<<=" in line):
-		operations += 1
-	if (">>=" in line):
-		operations += 1
-	if ("if (" in line):
-		operations += 1
-	if ("while (" in line):
-		operations += 1
-	if ("return (" in line):
-		operations += 1
-	if ("?" in line):
-		operations += 1
-
-	if (operations > 1):
-		return (1)
-	return (0)
+    c = 0
+    if not (line.startswith('/*') or line.startswith('**') or line.startswith('*/')):
+        for operation in OPERATIONS:
+            if operation in line:
+                if c > 0:
+                    return 1
+                c += 1
+    return 0
 
 def check_file(filename):
 	if (filename.endswith(".c")):
