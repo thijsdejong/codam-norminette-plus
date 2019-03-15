@@ -4,9 +4,10 @@ import sys
 import urllib
 
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
+REPOLINK = 'http://bit.ly/norminette'
 UPDATE_FAIL = "\n" + "\033[31m" + "Update:" + "\033[0m "
 UPDATE_WARN = "\n" + "\033[33m" + "Update:" + "\033[0m "
-__version__ = '19.3.5'
+__version__ = '19.3.6'
 
 OPERATIONS = (' = ', '++', '--', '+=', '-=', '*=', '/=', '&=', '|=', '^=', '<<=', '>>=', 'if (', 'while (', 'return (', '?')
 
@@ -19,7 +20,7 @@ def update():
         if (v.getcode() == 200):
             version = v.read().rstrip()
             if (version != __version__):
-                print(UPDATE_WARN + "version " + version + " is available, you have version " + __version__ + "")
+                print(UPDATE_WARN + "version " + version + " is available, you have version " + __version__ + "\n\t" + "repository: " + REPOLINK)
         else:
             print(UPDATE_FAIL + "can't fetch version file")
 
