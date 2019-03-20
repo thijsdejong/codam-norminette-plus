@@ -29,11 +29,11 @@ def check_file(filename):
     if filename.endswith(".c"):
         print "Norme: " + filename
         f = open(filename, "r")
-        line = 1
+        l = 1
         for line in f:
             if double_operation(line):
-                print "Error (line " + str(line) + "): multiple operations"
-            line += 1
+                print "Error (line " + str(l) + "): multiple operations"
+            l += 1
     else:
         print_invalid_file(filename)
 
