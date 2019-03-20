@@ -8,7 +8,7 @@ git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 ```
 Add the following line to your `~/.zshrc`
 ```
-alias norminette+="python ~/norminette+/norminette+.py"
+alias norminette+="python ~/norminette+/run.py"
 ```
 To use norminette+ you can run the following command in any folder
 ```
@@ -26,8 +26,3 @@ git -C ~/norminette+ pull
 - Check Makefile
   - maximum of 80 characters per line (line has x characters)
   - mandatory rules (all, $(NAME), clean, fclean, re)
-- Restructure code
-  - run.py (the main program)
-  - const.py (holds things like repository url and list op operations)
-  - \_\_version\_\_.py (program version)
-  - update.py (holds the updater)
