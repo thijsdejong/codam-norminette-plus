@@ -1,4 +1,6 @@
 # codam-norminette-plus
+A program created to automatically check the norm rules that `norminette` does not check
+
 ## Usage
 Run the following command to download norminette+
 ```
