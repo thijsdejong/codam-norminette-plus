@@ -43,6 +43,6 @@ def check_file(filename):
 def print_invalid_file(filename):
     """ Prints an invalid file warning """
     addition = "./"
-    if filename.startswith("/"):
+    if filename.startswith("/") or filename.startswith("./"):
         addition = ""
     print "Norme: " + addition + filename + "\nWarning: Not a valid file"
