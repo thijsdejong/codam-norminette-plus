@@ -16,8 +16,6 @@ def main():
                 get_files(arg + "/")
             elif os.path.isfile(arg):
                 check_file(arg)
-            elif arg[0] != "/":
-                print_invalid_file(arg, "./")
             else:
                 print_invalid_file(arg)
     update()
