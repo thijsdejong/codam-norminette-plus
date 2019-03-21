@@ -4,6 +4,6 @@ OPERATIONS = (' = ', '++', '--', '+=', '-=', '*=', '/=', '&=', '|=', '^=', '<<='
               'while (', 'return (')
 
 # Version management
-VERSION = '19.3.12'
+VERSION = '19.3.13'
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
-UPDATECOMMAND = "git -C ~/norminette+ pull"
+UPDATECOMMAND = "norminette+ --update"

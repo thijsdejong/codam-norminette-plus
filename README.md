@@ -19,7 +19,11 @@ norminette+
 Norminette+ will give you a notification when you do not have the latest version.
 Run the following command to update norminette+
 ```
-git -C ~/norminette+ pull
+norminette+ --update
+```
+Run the following command to see the current version
+```
+norminette+ --version
 ```
 
 ## TODO
