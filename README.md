@@ -6,9 +6,9 @@ Run the following command to download norminette+
 ```
 git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
 ```
-Add the following line to your `~/.zshrc`
+Run the following command to add the norminette+ alias to `~/.zshrc`
 ```
-alias norminette+="python ~/norminette+/run.py"
+echo 'alias norminette+="python ~/norminette+/run.py"' >> ~/.zshrc
 ```
 To use norminette+ you can run the following command in any folder
 ```
