@@ -6,6 +6,6 @@ MAKEFILENAMES = ("GNUmakefile", "makefile", "Makefile")
 MAKEFILERULES = ("all:", "$(NAME):", "clean:", "fclean:", "re:")
 
 # Version management
-VERSION = '19.4.3'
+VERSION = '19.4.4'
 VERSIONFILE = "https://raw.githubusercontent.com/thijsdejong/codam-norminette-plus/master/version"
 UPDATECOMMAND = "norminette+ --update"
