@@ -2,6 +2,8 @@
 # Operations
 OPERATIONS = (' = ', '++', '--', '+=', '-=', '*=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>=',
               'if (', 'while (', 'return (')
+MAKEFILENAMES = ("GNUmakefile", "makefile", "Makefile")
+MAKEFILERULES = ("all:", "$(NAME):", "clean:", "fclean:", "re:")
 
 # Version management
 VERSION = '19.4.1'

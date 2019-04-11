@@ -27,8 +27,3 @@ Run the following command to see the current version
 ```
 norminette+ --version
 ```
-
-## TODO
-- Check Makefile
-  - maximum of 80 characters per line (line has x characters)
-  - mandatory rules (all, $(NAME), clean, fclean, re)
