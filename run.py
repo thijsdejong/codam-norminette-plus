@@ -15,6 +15,7 @@ def main():
             option = True
             if arg == "--update":
                 update()
+                return
             elif arg == "--version":
                 print VERSION
             else:
