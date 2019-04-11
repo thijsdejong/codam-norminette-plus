@@ -1,2 +1,3 @@
 [BASIC]
 good-names=c,e,i,f,l
+min-similarity-lines=10

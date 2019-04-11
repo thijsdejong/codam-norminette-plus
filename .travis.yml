@@ -6,5 +6,10 @@ before_install:
   - pip install --upgrade setuptools
 install:
   - pip install pylint
-script:
-  - pylint *.py
+  - pip install pylint_runner
+jobs:
+  include:
+    - stage: run
+      script: python run.py
+    - stage: pylint
+      script: pylint_runner
