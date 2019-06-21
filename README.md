@@ -6,7 +6,7 @@ A program created to automatically check the norm rules that `norminette` does n
 ## QuickNorm
 Use the following command on any Codam computer to temporarily clone and use norminette+
 ```
-bash <(curl -sL bit.ly/quicknorm)
+bash <(curl -sL bit.ly/qnorm)
 ``` 
 
 ## Regular Usage
