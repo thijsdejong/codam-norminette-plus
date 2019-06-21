@@ -3,7 +3,13 @@ A program created to automatically check the norm rules that `norminette` does n
 
 ⚠️ I am not responsible for any mistakes in this program ¯\_(ツ)_/¯ ⚠️
 
-## Usage
+## QuickNorm
+Use the following command on any Codam computer to temporarily clone and use norminette+
+```
+bash <(curl -sL bit.ly/quicknorm)
+``` 
+
+## Regular Usage
 Run the following command to download norminette+
 ```
 git clone https://github.com/thijsdejong/codam-norminette-plus ~/norminette+
