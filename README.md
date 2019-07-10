@@ -1,7 +1,7 @@
 # Norminette+ [![Build Status](https://travis-ci.com/thijsdejong/codam-norminette-plus.svg?branch=master)](https://travis-ci.com/thijsdejong/codam-norminette-plus)
 A program created to automatically check the norm rules that `norminette` does not check
 
-⚠️ I am not responsible for any mistakes in this program ¯\\_(ツ)_/¯ ⚠️
+⚠️ I am not responsible for any mistakes in this program ¯\\\_(ツ)\_/¯ ⚠️
 
 ## QuickNorm
 Use the following command on any Codam computer to temporarily clone and use norminette+
