@@ -12,10 +12,9 @@ def check_rules(f):
         for line in f:
             if line.startswith(rule):
                 present = 1
-                break
         if not present:
             print "Error: missing " + rule + " rule"
-    f.seek(0)
+        f.seek(0)
 
 def check_line_length(f):
     """ Checks if the line is not wider than 80 characters """
