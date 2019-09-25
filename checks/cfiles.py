@@ -28,10 +28,10 @@ def remove_strings(f_content):
 
 def remove_re_matches(f_content, re_matches):
     """ removes the re_matches except the newlines """
-    replacer = " "
 
     for match in re_matches:
         newlines = 0
+        replacer = " "
         for char in match:
             if char == "\n":
                 newlines += 1
