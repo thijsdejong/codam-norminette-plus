@@ -20,7 +20,7 @@ def check_line_length(f):
     """ Checks if the line is not wider than 80 characters """
     l = 1
     for line in f:
-        line.replace('\t', '    ')
+        line = line.replace('\t', '    ')
         if len(line) > 80 + 1:
             print "Error (line " + str(l) + "): line has " + str(len(line) - 1) + " characters"
         l += 1
